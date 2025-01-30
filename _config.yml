@@ -21,7 +21,7 @@ title: "Robo-Saber: Physics-based Full-body User Modeling in Virtual Reality"
 title_separator: ""
 subtitle: # site tagline that appears below site title in masthead
 name: "Nam Hee Kim"
-description: "An amazing website."
+description: ""
 url: "https://robo-saber.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: ""
 repository: # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
