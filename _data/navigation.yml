@@ -1,0 +1,16 @@
+# main links
+main:
+  - title: "Paper"
+    url: https://dl.acm.org/doi/fullHtml/10.1145/3561975.3562943
+  - title: "Summary"
+    url: /#summary
+  - title: "Cite Us"
+    url: /#cite-us
+      # - title: "About"
+  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/

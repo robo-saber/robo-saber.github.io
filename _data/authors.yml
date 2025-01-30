@@ -1,0 +1,19 @@
+- name: "Nam Hee Kim"
+  affiliation: "Aalto University"
+  website: "https://namheegordonkim.github.io"
+
+- name: "May Liu"
+  affiliation: "UC Berkeley"
+  website: ""
+
+- name: "Perttu Hämäläinen"
+  affiliation: "Aalto University"
+  website: "https://users.aalto.fi/~hamalap5/"
+
+- name: "James F. O'Brien"
+  affiliation: "UC Berkeley"
+  website: "http://obrien.berkeley.edu/"
+
+- name: "Xue Bin Peng"
+  affiliation: "Simon Fraser University / NVIDIA"
+  website: "https://xbpeng.github.io"

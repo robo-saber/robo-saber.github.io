@@ -1,0 +1,9 @@
+- name: Video
+  url: "https://youtu.be/i1wppqgNIwY"
+  icon: "fab fa-youtube"
+- name: Paper
+  url: ""
+  icon: "fa fa-file-pdf"
+- name: Code
+  url: ""
+  icon: "fab fa-github"
