@@ -3,7 +3,9 @@ layout: splash
 author_profile: false
 ---
 
-# Robo-Saber: Physics-based Full-body User Modeling for Virtual Reality
+<!-- # Robo-Saber: Physics-based Full-body User Modeling for Virtual Reality -->
+
+<img src="/assets/images/website-title.svg" />
 
 _Submitted to SIGGRAPH 2025_
 
@@ -200,7 +202,7 @@ Our kinematic 3p generator uses a transformer architecture for both input signal
 <div style="display: flex;">
 <pre style="line-height: 1.4; overflow: auto; font-size: 0.5rem; ">
 @inproceedings{kim2025robo,
-    title={Robo-Saber: Physics-based Full-body User Modeling in Virtual Reality},
+    title={Robo-Saber: Physics-based Full-body User Modeling for Virtual Reality},
     author={Kim, Nam Hee and Liu, May and H{\"a}m{\"a}l{\"a}inen, Perttu and O'Brien, James and Peng, Xue Bin},
     booktitle={arXiv preprint},
     pages={1--10},
@@ -211,4 +213,4 @@ Our kinematic 3p generator uses a transformer architecture for both input signal
 
 ## Acknowledgements
 
-We would like to thank Vivek Nair and CyberRamen for technical discussions during the primary stage of this project. We forked AllPoland's ArcViewer for visualization. Credits for all songs and maps appearing in our study are attributed to the original authors.
+We would like to thank Vivek Nair and CyberRamen for technical discussions during the primary stage of this project. We forked AllPoland's ArcViewer for visualization. Credits for all songs and maps appearing in our study are to be attributed to the original authors.
