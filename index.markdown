@@ -3,7 +3,7 @@ layout: splash
 author_profile: false
 ---
 
-# Robo-Saber: Physics-based Full-body User Modeling in Virtual Reality
+# Robo-Saber: Physics-based Full-body User Modeling for Virtual Reality
 
 _Submitted to SIGGRAPH 2025_
 
