@@ -121,6 +121,11 @@ div.video {
     justify-content:center;
 }
 
+table.results {
+    align-items: center;
+    text-align: center;
+}
+
 
 </style>
 
@@ -152,7 +157,7 @@ div.video {
 
 <div class="video">
 <video width="100%" controls autoplay loop muted>
-    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1ad3b_comp.mp4" type="video/mp4">
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1ad3b.mp4" type="video/mp4">
 </video>
 We present the first full-body physically simulated AI player for VR games, demonstrated in simulated playtesting of Beat Saber maps.
 </div>
@@ -160,15 +165,23 @@ We present the first full-body physically simulated AI player for VR games, demo
 
 ## Results
 
-TODO
+<table class="results">
+<tr>
+<td>
+<video width="320" controls>
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1a322.mp4" type="video/mp4">
+</video>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://beatsaver.com/maps/1f3d1" target="_blank">Camellia - Myths You Forgot (Expert+)</a></td>
+</tr>
+</table>
 
 ## Summary
 
 We trained and evaluated **Robo-Saber**, a physics-based AI player for the VR game _Beat Saber_ using gameplay sequences from the BOXRR-23 dataset aligned with map files from BeatSaver. Robo-Saber is the first physics-based full-body player model for VR and capable of expert-level gameplay. Robo-Saber can simulate diverse and human-like gameplay behaviors which can be used for evaluating and playtesting brand-new maps with zero real players.
-
-<!-- ## Abstract
-
-The use of physics-based character controllers has emerged as a general-purpose approach for modeling embodied interaction such as virtual reality (VR) games. A key promise here is that VR designers can conveniently test and optimize their creations in silico, using AI playtesting to augment the time-consuming and expensive traditional user testing. However, models thus far have been limited to simple interaction tasks and to partial body models, such as a single arm. To tackle this limitation, we present Robo-Saber, the first physics-based full-body VR user simulation model capable of playing Beat Saber, a popular VR game that requires complex and spatio-temporally precise full-body movements. Our technical solution combines 1) a custom kinematic generative model for the three-point (3p) position and orientation movements of the VR headset and hand trackers and 2) a finetuned 3p tracking controller for reconstructing the movements of the player’s body in a physically plausible manner. By training our model on the large BOXRR-23 dataset, our system is able to exhibit human-like gameplay behavior that generalizes to new game maps. We validate the embodied player model’s simulated behaviors by 1) comparing the model’s gameplay capability to human players, and 2) predicting the human scores of Beat Saber maps not included in the training data, which demonstrates the model’s utility for user modeling. Our results suggest that Robo-Saber could assist the designers of novel Beat Saber maps. Our combination of 3p kinematic generation and full-body physics-based tracking should also be applicable for modeling VR scenarios beyond Beat Saber. -->
 
 <style>
 div.figure {
