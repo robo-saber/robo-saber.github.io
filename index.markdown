@@ -7,8 +7,6 @@ author_profile: false
 
 <img src="/assets/images/website-title.svg" />
 
-_Submitted to SIGGRAPH 2025_
-
 <style>
 div {
     /* border: 1px solid black; */
