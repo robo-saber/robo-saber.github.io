@@ -110,7 +110,7 @@ div.youtube {
     justify-content:center;
 }
 
-div.video {
+div.teaser {
     width: 100%;
     min-width: 320px;
     margin: auto;
@@ -126,6 +126,10 @@ table.results {
     text-align: center;
 }
 
+table.teaser {
+    align-items: center;
+    text-align: center;
+}
 
 </style>
 
@@ -155,12 +159,26 @@ table.results {
 
 </div>
 
-<div class="video">
+<div class="teaser">
+<table class="teaser">
+<tr>
+<td>
 <video width="100%" controls autoplay loop muted>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1ad3b.mp4" type="video/mp4">
 </video>
+</td>
+</tr>
+<tr>
+<td>
+<a href="https://beatsaver.com/maps/1ad3b" target="_blank">Toby Fox - Megalovania (Camellia Remix) (Expert+)</a>
+</td>
+</tr>
+</table>
+
 We present the first full-body physically simulated AI player for VR games, demonstrated in simulated playtesting of Beat Saber maps.
+
 </div>
+
 </div>
 
 ## Results
@@ -175,7 +193,7 @@ We present the first full-body physically simulated AI player for VR games, demo
 </tr>
 <tr>
 <td>
-<a href="https://beatsaver.com/maps/1f3d1" target="_blank">Camellia - Myths You Forgot (Expert+)</a></td>
+<a href="https://beatsaver.com/maps/1a322" target="_blank">Camellia - Myths You Forgot (Expert+)</a></td>
 </tr>
 </table>
 
