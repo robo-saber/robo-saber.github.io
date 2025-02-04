@@ -164,13 +164,13 @@ table.teaser {
 <tr>
 <td>
 <video width="100%" controls autoplay loop muted>
-    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1ad3b.mp4" type="video/mp4">
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/4421.mp4" type="video/mp4">
 </video>
 </td>
 </tr>
 <tr>
 <td>
-<a href="https://beatsaver.com/maps/1ad3b" target="_blank">Toby Fox - Megalovania (Camellia Remix) (Expert+)</a>
+<a href="https://beatsaver.com/maps/4421" target="_blank">Toby Fox - Megalovania (Normal)</a>
 </td>
 </tr>
 </table>
@@ -190,10 +190,19 @@ We present the first full-body physically simulated AI player for VR games, demo
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1a322.mp4" type="video/mp4">
 </video>
 </td>
+<td>
+<video width="320" controls>
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1ad3b.mp4" type="video/mp4">
+</video>
+</td>
 </tr>
 <tr>
 <td>
-<a href="https://beatsaver.com/maps/1a322" target="_blank">Camellia - Myths You Forgot (Expert+)</a></td>
+<a href="https://beatsaver.com/maps/1a322" target="_blank">Camellia - Myths You Forgot (Expert+)</a>
+</td>
+<td>
+<a href="https://beatsaver.com/maps/1ad3b" target="_blank">Toby Fox - Megalovania (Camellia Remix) (Expert+)</a>
+</td>
 </tr>
 </table>
 
