@@ -3,135 +3,159 @@ layout: splash
 author_profile: false
 ---
 
-<!-- # Robo-Saber: Full-body Physics-based User Modeling for Virtual Reality -->
+# Robo-Saber: A Full-body Physics-based Virtual Reality Playtesting Agent
 
-<img src="/assets/images/website-title.svg" />
+<!-- <img src="/assets/images/website-title.svg" /> -->
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <style>
 div {
     /* border: 1px solid black; */
 }
 
 div.author {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
 }
 
 div.affiliation {
-    padding-left: 10px;
-    font-size: 0.8rem;
-    vertical-align: middle;
+padding-left: 10px;
+font-size: 0.8rem;
+vertical-align: middle;
 }
 
-/* @media (min-width:320px) {
+/_ @media (min-width:320px) {
 div.name {
-    text-transform: uppercase;
-    width: 100%;
+text-transform: uppercase;
+width: 100%;
 }
-} */
+} _/
 
 @media (min-width:600px) {
 div.name {
-    text-transform: uppercase;
-    /* margin-right: auto; */
+text-transform: uppercase;
+/_ margin-right: auto; _/
 }
 }
 
 span.affiliation {
-    size: 1px;
+size: 1px;
 }
 p.author {
-    margin: 5px 0
+margin: 5px 0
 }
 
 div.teaser {
-    overflow: hidden;
-    align: center;
-    text-align: center;
-    padding-bottom: 10px;
-    padding-top: 10px;
+overflow: hidden;
+align: center;
+text-align: center;
+padding-bottom: 10px;
+padding-top: 10px;
 }
 
 img.teaser {
-    overflow: hidden;
-    object-fit: cover;
-    width:40%;
-    min-width: 300px;
-    /* min-height: 200px; */
-    margin-top:-50px;
-    margin-bottom: -50px;
-    /* margin-left: auto;
-    margin-right: auto; */
+overflow: hidden;
+object-fit: cover;
+width:40%;
+min-width: 300px;
+/_ min-height: 200px; _/
+margin-top:-50px;
+margin-bottom: -50px;
+/_ margin-left: auto;
+margin-right: auto; _/
 }
 
 a {
-  text-decoration: none;
+text-decoration: none;
 }
 
 ul.authors.links li {
-	margin-top: 0.8rem;
-	padding: 0 0.1rem;
+margin-top: 0.8rem;
+padding: 0 0.1rem;
 }
 
-/* Style buttons */
+/_ Style buttons _/
 .btn {
-	background-color: rgb(70, 139, 250);; /* Blue background */
-	border: none; /* Remove borders */
-	color: white; /* White text */
-	padding: 8px 12px; /* Some padding */
-	font-size: 14px; /* Set a font size */
-	cursor: pointer; /* Mouse pointer on hover */
-	border-radius: 18px;
+background-color: rgb(70, 139, 250);; /_ Blue background _/
+border: none; /_ Remove borders _/
+color: white; /_ White text _/
+padding: 8px 12px; /_ Some padding _/
+font-size: 14px; /_ Set a font size _/
+cursor: pointer; /_ Mouse pointer on hover _/
+border-radius: 18px;
 }
-  
-  /* Darker background on mouse-over */
+
+/_ Darker background on mouse-over _/
 .btn:hover {
-	background-color: rgb(70, 139, 250);;
-        /* Blue background */
+background-color: rgb(70, 139, 250);;
+/_ Blue background _/
 }
 
 div.links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
-    justify-content:center;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+text-align: center;
+justify-content:center;
 }
 
 div.youtube {
-    width: 80%;
-    min-width: 320px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
-    justify-content:center;
+width: 80%;
+min-width: 320px;
+margin: auto;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+text-align: center;
+justify-content:center;
 }
 
 div.teaser {
-    width: 100%;
-    min-width: 320px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
-    justify-content:center;
+width: 100%;
+min-width: 320px;
+margin: auto;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+text-align: center;
+justify-content:center;
 }
 
 table.results {
-    align-items: center;
-    text-align: center;
+align-items: center;
+text-align: center;
 }
 
 table.teaser {
-    align-items: center;
-    text-align: center;
+align-items: center;
+text-align: center;
 }
 
 </style>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+</script>
 
 <div class="authors">
 {% for author in site.data.authors %}
@@ -183,28 +207,46 @@ We present the first full-body physically simulated AI player for VR games, demo
 
 ## Results
 
+<div class="owl-carousel owl-theme">
+{% for row in site.data.show_website %}
+<div class="item">
 <table class="results">
 <tr>
 <td>
 <video width="320" controls>
-    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1a322.mp4" type="video/mp4">
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4" type="video/mp4">
 </video>
 </td>
-<td>
-<video width="320" controls>
-    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/1ad3b.mp4" type="video/mp4">
-</video>
-</td>
+
 </tr>
 <tr>
 <td>
-<a href="https://beatsaver.com/maps/1a322" target="_blank">Camellia - Myths You Forgot (Expert+)</a>
-</td>
-<td>
-<a href="https://beatsaver.com/maps/1ad3b" target="_blank">Toby Fox - Megalovania (Camellia Remix) (Expert+)</a>
+<a href="https://beatsaver.com/maps/{{row.id}}" target="_blank">{{row.name}} ({{row.difficulty}})</a>
 </td>
 </tr>
 </table>
+</div>
+{% endfor %}
+</div>
+<script>
+$('.owl-carousel').owlCarousel({
+    loop:false,
+    margin:10,
+    nav:true,
+    lazyLoad:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+</script>
 
 ## Summary
 
