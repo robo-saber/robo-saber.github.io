@@ -174,11 +174,13 @@ $('.owl-carousel').owlCarousel({
 
 <div class="links">
 {% for link in site.data.links %}
-
-    <a href="{{link.url}}" target="_blank ">
+    {% if link.url == "" %}
         <button class="btn "><i class="{{link.icon}} "></i> {{link.name}}</button>
-    </a>
-
+    {% else %}
+        <a href="{{link.url}}" target="_blank ">
+            <button class="btn "><i class="{{link.icon}} "></i> {{link.name}}</button>
+        </a>
+    {% endif %}
 {% endfor %}
 
 </div>
