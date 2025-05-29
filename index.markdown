@@ -185,18 +185,19 @@ $('.owl-carousel').owlCarousel({
 
 <div class="teaser">
 <table class="teaser">
+{% for row in site.data.show_website_teaser %}
 <tr>
 <td>
 <video width="100%" controls autoplay loop muted>
-    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/4421.mp4" type="video/mp4">
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4" type="video/mp4">
 </video>
 </td>
 </tr>
 <tr>
 <td>
-<a href="https://beatsaver.com/maps/4421" target="_blank">Toby Fox - Megalovania (Normal)</a>
-</td>
+<a href="https://beatsaver.com/maps/{{row.id}}" target="_blank">{{row.name}} ({{row.difficulty}})</a></td>
 </tr>
+{% endfor %}
 </table>
 
 We present the first full-body physically simulated AI player for VR games, demonstrated in simulated playtesting of Beat Saber maps.
@@ -214,10 +215,9 @@ We present the first full-body physically simulated AI player for VR games, demo
 <tr>
 <td>
 <video width="320" controls>
-    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4" type="video/mp4">
+    <source class="owl-lazy" src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4" type="video/mp4">
 </video>
 </td>
-
 </tr>
 <tr>
 <td>
@@ -233,6 +233,8 @@ $('.owl-carousel').owlCarousel({
     loop:false,
     margin:10,
     nav:true,
+    video:true,
+    center:true,
     lazyLoad:true,
     responsive:{
         0:{
