@@ -1,11 +1,12 @@
 # main links
 main:
   - title: "Paper"
-    url: https://dl.acm.org/doi/fullHtml/10.1145/3561975.3562943
+    url: https://users.aalto.fi/~kimn1/robo-saber/paper/robo-saber-preprint.pdf
   - title: "Summary"
     url: /#summary
   - title: "Cite Us"
-    url: /#cite-us
+    url:
+      /#cite-us
       # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"

@@ -12,6 +12,17 @@ author_profile: false
 <style>
 div {
     /* border: 1px solid black; */
+    /* max-width: 1080px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+body {
+max-width: 1280px;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
 }
 
 div.author {
@@ -263,7 +274,8 @@ div.figure {
     margin-right: auto;
     align: center;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 100px;
+    padding-top: 100px;
 }
 </style>
 
