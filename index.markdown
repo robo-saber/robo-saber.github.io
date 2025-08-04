@@ -3,8 +3,6 @@ layout: splash
 author_profile: false
 ---
 
-# Robo-Saber: A Full-body Physics-based Virtual Reality Playtesting Agent
-
 <!-- <img src="/assets/images/website-title.svg" /> -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -23,6 +21,14 @@ max-width: 1280px;
 margin-left: auto;
 margin-right: auto;
 width: 100%;
+}
+
+div.title {
+padding-bottom: 1em;
+}
+
+div.authors {
+padding-bottom: 1em;
 }
 
 div.author {
@@ -168,10 +174,15 @@ $('.owl-carousel').owlCarousel({
 })
 </script>
 
+<div class="title">
+<center><font size="24em">Robo-Saber:</font><br /><font size="6em">A Full-body Physics-based Virtual Reality Playtesting Agent</font></center>
+</div>
+
 <div class="authors">
 {% for author in site.data.authors %}
 
 <div class="author">
+
 <div class="name">
 {% if author.website != "" %}
 <a href="{{author.website}}">{{author.name}}</a>
@@ -179,9 +190,11 @@ $('.owl-carousel').owlCarousel({
 {{author.name}}
 {% endif %}
 </div>
+
 <div class="affiliation">{{author.affiliation}}</div>
 </div>
 {% endfor %}
+</div>
 
 <div class="links">
 {% for link in site.data.links %}
@@ -193,7 +206,6 @@ $('.owl-carousel').owlCarousel({
         </a>
     {% endif %}
 {% endfor %}
-
 </div>
 
 <div class="teaser">
@@ -212,11 +224,9 @@ $('.owl-carousel').owlCarousel({
 </tr>
 {% endfor %}
 </table>
-
+<figcaption>
 We present the first full-body physically simulated AI player for VR games, demonstrated in simulated playtesting of Beat Saber maps.
-
-</div>
-
+</figcaption>
 </div>
 
 ## Results
@@ -282,16 +292,14 @@ div.figure {
 <div class="figure">
 <img src="{{'/assets/images/BeatyFigs-v7.png' | relative_url }}"/>
 </div>
-<div>
+
 We combine a kinematic 3p motion generator with a physics-based tracking controller to build a robot player. For kinematic generation, we build on Categorical Codebook Matching [Starke et al., 2024]. For 3p tracking, we fine-tune PHC [Luo et al., 2023] with custom motion capture data featuring Beat Saber gameplay movements.
-</div>
 
 <div class="figure">
 <img src="{{'/assets/images/ccm-v1.png' | relative_url }}"/>
 </div>
-<div>
+
 Our kinematic 3p generator uses a transformer architecture for both input signal encoder and Gumbel-Softmax VAE. Beat Saber game objects, i.e., colored notes, bomb notes, and obstacles, as well as the history of generated output are used as input signal. The Gumbel-Softmax VAE auto-encodes reference 3p motion segments. The latent categorical distributions resulting from the input signal and the Gumbel-Softmax VAE are matched using a Jensen-Shannon divergence-based loss.
-</div>
 
 ## Cite Us
 
