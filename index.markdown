@@ -275,7 +275,7 @@ $('.owl-carousel').owlCarousel({
 
 ## Summary
 
-We trained and evaluated **Robo-Saber**, a physics-based AI player for the VR game _Beat Saber_ using gameplay sequences from the BOXRR-23 dataset aligned with map files from BeatSaver. Robo-Saber is the first physics-based full-body player model for VR and capable of expert-level gameplay. Robo-Saber can simulate diverse and human-like gameplay behaviors which can be used for evaluating and playtesting brand-new maps with zero real players.
+We trained and evaluated **Robo-Saber**, a physics-based AI player for the VR game _Beat Saber_ using gameplay sequences from the BOXRR-23 dataset aligned with map files from BeatSaver. Robo-Saber is the first physics-based full-body player model for VR and capable of general, expert-level gameplay within physical and embodied constraints. We demonstrate Robo-Saber's utility for evaluating and playtesting brand-new maps with zero real players.
 
 <style>
 div.figure {
