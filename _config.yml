@@ -17,12 +17,12 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 # Site Settings
 locale: "en-US"
 rtl: # true, false (default) # turns direction of the page into right to left for RTL languages
-title: "Robo-Saber: A Full-body Physics-based Virtual Reality Playtesting Agent"
+title: "Robo-Saber: Generating and Simulating Virtual Reality Players"
 title_separator: ""
 shorttitle: "Robo-Saber"
 subtitle: "" # site tagline that appears below site title in masthead
 name: "Nam Hee Gordon Kim"
-description: ""
+description: "[Eurographics 2026] Robo-Saber is the first style-aware, generative AI player model for VR games, demonstrated in simulated Beat Saber playtesting."
 url: "https://robo-saber.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: ""
 repository: # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -113,7 +113,7 @@ analytics:
 
 # Site Author
 author:
-  name: "Nam Hee Kim"
+  name: "Nam Hee Gordon Kim"
   avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio: ""
   location: ""
