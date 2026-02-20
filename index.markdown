@@ -97,6 +97,7 @@ div.authors {
 
 div.author {
   text-align: center;
+  min-width: 0;
 }
 
 div.name {
@@ -118,7 +119,7 @@ div.name a:hover {
 }
 
 div.affiliation {
-  font-size: 0.7rem;
+  font-size: 0.63rem;
   color: #777;
   padding-left: 0;
   margin-top: 0.1rem;
@@ -469,7 +470,7 @@ Robo-Saber is a player model for VR games, demonstrated in simulated Beat Saber 
 </figcaption>
 </div>
 
-## Results
+## Results: Generation + Tracking
 
 <div class="owl-carousel owl-theme">
 {% for row in site.data.show_website %}
@@ -513,6 +514,8 @@ $('.owl-carousel').owlCarousel({
 })
 </script>
 
+(Generation only & stylization: coming soon.)
+
 ## Summary
 
 **Robo-Saber** is the first motion generation system for playtesting virtual reality (VR) games.
@@ -529,13 +532,81 @@ Each candidate is then evaluated using TorchSaber, a custom GPU-accelerated _Bea
 The highest-scoring trajectory is selected and fed back autoregressively, producing minutes-long gameplay sequences on entirely new maps.
 The generated _3p_ trajectories can optionally drive a physics-based full-body tracking controller (PHC, Luo et al., 2023), fine-tuned on custom _Beat Saber_ motion capture data, for whole-body gameplay simulation.
 
+<video width="100%" controls autoplay loop muted>
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/humans_side_by_side_short.mp4" type="video/mp4">
+</video>
+
+Our training data comprises millions of gameplay sequences accumulated from over 70k players in [BOXRR-23](https://rdi.berkeley.edu/metaverse/boxrr-23/), aligned with map files from [BeatSaver](https://beatsaver.com/).
+Naturally, different players move differently in terms of how and how well they can play.
+
+<table class="teaser">
+<tr>
+<td style="width:50%; padding-right:8px;" markdown="1">
+
+![](https://users.aalto.fi/~kimn1/robo-saber/videos/supervised_learning_in.png)
+
+</td>
+<td style="width:50%; padding-left:8px;">
+<video width="100%" controls autoplay loop muted>
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/supervised_learning_gt_cropped.mp4" type="video/mp4">
+</video>
+</td>
+</tr>
+</table>
+
+We formulate generative motion planning as a simple supervised learning problem: given the in-game object arrangements and the headset/handheld controller state (left), we task our model with predicting the 1-second future trajectory (right).
+
+However, the key question remains: how should we represent the individual players' variability in gameplay styles?
+
+<table class="teaser">
+<tr>
+<td style="width:50%;">
+<video width="100%" controls autoplay loop muted>
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/left_0.mp4" type="video/mp4">
+</video>
+</td>
+<td style="width:50%;">
+<video width="100%" controls autoplay loop muted>
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/left_1.mp4" type="video/mp4">
+</video>
+</td>
+</tr>
+</table>
+
+Our idea is to use short sample clips of actual gameplay (we dub "contextual exemplars") to represent individual players' gameplay skills and movement patterns. For example, a skilled expert player's contextual exemplars (left) show confident and aggressive swings, while a novice player's (right) shows cautious and small swings.
+
 <div class="figure">
-<img src="{{'/assets/images/ccm-v1.png' | relative_url }}"/>
+<img src="{{'/assets/images/ccm-v2.png' | relative_url }}"/>
 </div>
 
-Our generative model extends Categorical Codebook Matching (CCM, Starke et al., 2024) with two key contributions.
+Our generative model extends Categorical Codebook Matching (CCM, [Starke et al., 2024](https://dl.acm.org/doi/10.1145/3658209)) with two key contributions.
 First, we introduce a Transformer-based style encoder that embeds contextual exemplars into a style conditioning signal, added alongside a Transformer-based game encoder that predicts the latent categorical distribution for the next _3p_ motion chunk from the game state and pose history.
 Second, we replace CCM's MSE-based matching loss with a Jensen-Shannon divergence (JSD) loss for a more principled alignment between the Gumbel-Softmax VAE's encoding of the target motion and the game encoder's prediction.
+
+<table class="teaser">
+<tr>
+<td style="width:50%;">
+<video width="100%" controls autoplay loop muted>
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/comparison_0.mp4" type="video/mp4">
+</video>
+</td>
+</tr>
+</table>
+
+By feeding the contextual exemplars along with in-game object arrangements and player model state to the model, we can produce output consistent with the target skill level and movement output. The generated trajectory (right) reflects the confident and fast swings of the exemplars (left).
+
+<table class="teaser">
+<tr>
+<td style="width:50%;">
+<video width="100%" controls autoplay loop muted>
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/comparison_1.mp4" type="video/mp4">
+</video>
+</td>
+</tr>
+</table>
+
+Similarly, the model can produce novice-like movements by feeding a novice player's contextual exemplars.
+
 The resulting model achieves elite-level _Beat Saber_ gameplay and, by conditioning on a few reference segments, correlates strongly with individual players' scores on held-out maps (_r_ = 0.789), enabling personalized score prediction for brand-new content.
 
 ## Cite Us
