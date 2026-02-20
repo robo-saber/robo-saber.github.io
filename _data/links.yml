@@ -1,9 +1,9 @@
 - name: Video
-  url: "https://youtu.be/zJ4q9cCwJyw"
+  url: "https://youtube.com"
   icon: "fab fa-youtube"
 - name: Paper
-  url: "https://users.aalto.fi/~kimn1/robo-saber/paper/robo-saber-preprint.pdf"
+  url: "https://arxiv.org"
   icon: "fa fa-file-pdf"
 - name: Code (Coming Soon)
-  url: ""
+  url: "https://github.com/namheegordonkim/robo-saber"
   icon: "fab fa-github"
