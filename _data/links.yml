@@ -1,8 +1,8 @@
-- name: Video
+- name: Video (Coming Soon)
   url: "https://youtube.com"
   icon: "fab fa-youtube"
 - name: Paper
-  url: "https://arxiv.org"
+  url: "https://arxiv.org/abs/2602.18319"
   icon: "fa fa-file-pdf"
 - name: Code (Coming Soon)
   url: "https://github.com/namheegordonkim/robo-saber"
