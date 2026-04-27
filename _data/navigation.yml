@@ -2,6 +2,8 @@
 main:
   - title: "Paper"
     url: https://users.aalto.fi/~kimn1/robo-saber/paper/robo-saber-preprint.pdf
+  - title: "Abstract"
+    url: /#abstract
   - title: "Summary"
     url: /#summary
   - title: "Cite Us"

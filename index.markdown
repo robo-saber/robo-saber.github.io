@@ -3,9 +3,8 @@ layout: splash
 author_profile: false
 ---
 
-<!-- OwlCarousel CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12.1.3/swiper-bundle.min.css">
 
 <style>
 /* ==========================================================
@@ -54,6 +53,7 @@ div.title {
   line-height: 1.15;
   color: #1a1a1a;
   letter-spacing: -0.025em;
+  font-variant-caps: small-caps;
   margin: 0;
 }
 
@@ -135,7 +135,7 @@ div.links {
   gap: 0.6rem;
   align-items: center;
   justify-content: center;
-  padding: 0.3rem 1rem 2rem 1rem;
+  padding: 0.3rem 1rem 0.8rem 1rem;
 }
 
 .btn {
@@ -168,16 +168,6 @@ div.links {
   font-size: 1rem;
 }
 
-/* — Teaser Video — */
-div.teaser {
-  width: 100%;
-  max-width: 800px;
-  min-width: 280px;
-  margin: 1.2rem auto 2rem auto;
-  display: block;
-  text-align: center;
-}
-
 table.teaser {
   width: 100%;
   border-collapse: collapse;
@@ -195,23 +185,6 @@ table.teaser a {
   font-weight: 500;
 }
 
-div.teaser video {
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
-  width: 100%;
-}
-
-div.teaser figcaption {
-  margin-top: 1rem;
-  font-size: 0.92rem;
-  color: #666;
-  font-style: italic;
-  line-height: 1.6;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* — Section Headings — */
 h2 {
   font-family: 'Noto Sans', sans-serif;
@@ -222,7 +195,8 @@ h2 {
   margin-bottom: 1rem;
   padding-bottom: 0.4rem;
   border-bottom: 2.5px solid #e0e0e0;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
+  font-variant-caps: small-caps;
 }
 
 /* — Body Paragraphs — */
@@ -258,46 +232,473 @@ div.figure img:hover {
 }
 
 /* — Results Carousel — */
-table.results {
-  text-align: center;
-  border-collapse: collapse;
-}
-
-table.results td {
-  border: none;
-  padding: 0.25rem 0;
-}
-
-table.results video {
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-table.results a {
-  font-size: 0.85rem;
-  color: #4361ee;
-  font-weight: 500;
-}
-
-.owl-carousel .item {
-  padding: 0.4rem;
-}
-
-.owl-nav button span {
-  font-size: 2rem;
-  color: #4361ee;
-}
-
-/* — YouTube Embed — */
-div.youtube {
-  width: 80%;
-  min-width: 280px;
-  max-width: 720px;
-  margin: 2rem auto;
+.results-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+}
+
+.results-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.results-card video,
+.results-card iframe {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #f0f0f0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: none;
+}
+
+.results-card-content {
+  padding: 0.2rem 0.5rem;
+  text-align: center;
+  flex-grow: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
+  background: #fff;
+}
+
+.results-card-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4361ee;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.results-card-title:hover {
+  color: #3a0ca3;
+  text-decoration: underline;
+}
+
+.carousel-container {
+  position: relative;
+  padding: 0 0 3.5rem 0;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.carousel-container .swiper-slide {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  opacity: 0.25;
+  transform: scale(0.92);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.carousel-container .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-nav,
+.store-media-thumb-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #4361ee;
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+
+.carousel-nav:hover,
+.carousel-nav:focus,
+.store-media-thumb-nav:hover,
+.store-media-thumb-nav:focus {
+  background: #f6f8fa;
+  border-color: #4361ee;
+  outline: none;
+}
+
+.carousel-nav.swiper-button-disabled,
+.store-media-thumb-nav.swiper-button-disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.carousel-nav.swiper-button-lock,
+.store-media-main-nav.swiper-button-lock,
+.store-media-thumb-nav.swiper-button-lock {
+  display: flex !important;
+}
+
+.carousel-nav span,
+.store-media-main-nav span,
+.store-media-thumb-nav span {
+  display: block;
+  line-height: 1;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 43%;
+  z-index: 3;
+  height: 4rem;
+  transform: translateY(-50%);
+}
+
+.carousel-prev {
+  left: 0;
+}
+
+.carousel-next {
+  right: 0;
+}
+
+.carousel-scrollbar.swiper-scrollbar,
+.store-media-thumb-scrollbar.swiper-scrollbar {
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 100% !important;
+  height: 4px !important;
+  margin-top: 0.55rem;
+  background: #e0e0e0;
+  border-radius: 999px;
+}
+
+.carousel-scrollbar .swiper-scrollbar-drag,
+.store-media-thumb-scrollbar .swiper-scrollbar-drag {
+  background: #4361ee;
+}
+
+.carousel-scrollbar.swiper-scrollbar-lock,
+.store-media-thumb-scrollbar.swiper-scrollbar-lock {
+  display: block !important;
+}
+
+/* — Store Media Carousel — */
+div.store-media {
+  width: 100%;
+  min-width: 280px;
+  max-width: 900px;
+  margin: 0.6rem auto 2rem auto;
+  padding: 0.8rem;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+}
+
+.store-media-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.15rem 0.65rem 0.15rem;
+}
+
+.store-media-heading-count {
+  padding: 0.18rem 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 999px;
+  color: #555;
+  font-size: 0.76rem;
+  line-height: 1.2;
+}
+
+.store-media-heading-title,
+.store-media-label,
+.store-media-thumbs-heading,
+.store-media-thumb-type {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.store-media-heading-title,
+.store-media-label,
+.store-media-thumbs-heading {
+  color: #777;
+  letter-spacing: 0.08em;
+}
+
+.store-media-heading-title {
+  font-size: 0.74rem;
+}
+
+.store-media-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.store-media-carousel .swiper-slide {
+  height: auto;
+}
+
+.store-media-frame {
+  position: relative;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #eaeaea;
+}
+
+.store-media-frame::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+.store-media-frame .responsive-video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.store-media-frame iframe,
+.store-media-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.store-media-thumb-media img,
+.store-media-thumb-media video {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.store-media-frame video {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.store-media-caption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0.2rem 0.2rem 0.2rem;
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.store-media-caption a {
+  color: #4361ee;
+  font-weight: 600;
+}
+
+.store-media-label {
+  font-size: 0.72rem;
+}
+
+.store-media-main-nav-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  padding-top: 56.25%;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.store-media-carousel:hover .store-media-main-nav-layer,
+.store-media-carousel:focus-within .store-media-main-nav-layer {
+  opacity: 1;
+}
+
+.store-media-main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 72px;
+  padding: 0;
+  background: transparent !important;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+  pointer-events: auto;
+}
+
+.store-media-main-nav:hover,
+.store-media-main-nav:focus {
+  color: #fff;
+  outline: none;
+}
+
+.store-media-main-nav.swiper-button-disabled {
+  cursor: default;
+  opacity: 0.25;
+}
+
+.store-media-main-prev {
+  left: 0;
+}
+
+.store-media-main-next {
+  right: 0;
+}
+
+.store-media-thumbs-heading {
+  margin-top: 0.75rem;
+  font-size: 0.72rem;
+}
+
+.store-media-thumbs-wrap {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) 2rem;
+  gap: 0.35rem;
+  align-items: stretch;
+  margin-top: 0.35rem;
+}
+
+.store-media-thumbs {
+  min-width: 0;
+  padding-bottom: 0.7rem;
+  overflow: hidden;
+}
+
+.store-media-thumbs .swiper-wrapper {
+  align-items: stretch;
+}
+
+.store-media-thumb-button {
+  min-width: 0;
+  width: 215px !important;
+  height: auto;
+  padding: 0;
+  background: #fff !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 3px;
+  color: #333 !important;
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: left;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.store-media-thumb-button.is-active,
+.store-media-thumb-button.swiper-slide-thumb-active,
+.store-media-thumb-button:hover,
+.store-media-thumb-button:focus {
+  background: #f6f8fa !important;
+  border-color: #4361ee !important;
+  outline: none;
+}
+
+.store-media-thumb-button:focus-visible {
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.25);
+}
+
+.store-media-thumb {
+  display: grid !important;
+  grid-template-columns: 5.4rem minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: center;
+  width: auto !important;
+  padding: 0.45rem;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+.store-media-thumb,
+.store-media-thumb-media,
+.store-media-thumb-type,
+.store-media-thumb-title {
+  height: auto !important;
+  margin: 0 !important;
+}
+
+.store-media-thumb-media {
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000 !important;
+  border-radius: 2px !important;
+}
+
+.store-media-thumb-media img,
+.store-media-thumb-media video {
+  height: 100%;
+}
+
+.store-media-thumb-type,
+.store-media-thumb-title {
+  display: block !important;
+  width: auto !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.store-media-thumb-type {
+  color: #4361ee;
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+}
+
+.store-media-thumb-title {
+  margin-top: 0.12rem;
+  color: #333;
+  font-size: 0.82rem;
+}
+
+.store-media-summary {
+  margin-top: 0.65rem;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .store-media-main-nav-layer {
+    opacity: 1;
+  }
+}
+
+/* — Abstract — */
+div.abstract {
+  max-width: 800px;
+  margin: 0.5rem auto 2rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  color: #444;
+  line-height: 1.75;
 }
 
 /* — Citation Block — */
@@ -367,7 +768,31 @@ a:hover {
     font-size: 1.35rem;
     margin-top: 2.2rem;
   }
-  div.teaser {
+  div.store-media {
+    max-width: 95%;
+    padding: 0.55rem;
+  }
+  .store-media-main-nav {
+    width: 34px;
+    height: 56px;
+    font-size: 2.4rem;
+  }
+  .store-media-thumbs-wrap {
+    grid-template-columns: 1.8rem minmax(0, 1fr) 1.8rem;
+  }
+  .store-media-thumb-nav {
+    width: 1.8rem;
+  }
+  .store-media-thumb-button {
+    width: 82% !important;
+  }
+  .store-media-thumb {
+    grid-template-columns: 4.8rem minmax(0, 1fr);
+  }
+  .store-media-caption {
+    align-items: flex-start;
+  }
+  .store-media-caption a {
     max-width: 95%;
   }
   div.figure {
@@ -401,9 +826,8 @@ a:hover {
 }
 </style>
 
-<!-- jQuery & OwlCarousel -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@12.1.3/swiper-bundle.min.js"></script>
 
 <!-- ===== Title ===== -->
 <div class="title">
@@ -448,73 +872,184 @@ a:hover {
 {% endfor %}
 </div>
 
-<!-- ===== Teaser Video ===== -->
-<div class="teaser">
-<table class="teaser">
+<!-- ===== Store Media Carousel ===== -->
+<div class="store-media">
+<div class="store-media-heading">
+<span class="store-media-heading-title">Videos</span>
+<span class="store-media-heading-count" aria-live="polite"><span class="store-media-current">1</span> / {{ site.data.show_website_teaser.size | plus: 2 }} videos</span>
+</div>
+<div class="store-media-carousel swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="store-media-frame fitvidsignore">
+{% include video id="urABYGfCeAc" provider="youtube" %}
+</div>
+<div class="store-media-caption">
+<span class="store-media-label">Video</span>
+<span>Eurographics 2026 Fast-Forward</span>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="store-media-frame fitvidsignore">
+{% include video id="rjWQRB7w2LI" provider="youtube" %}
+</div>
+<div class="store-media-caption">
+<span class="store-media-label">Video</span>
+<span>Supplementary Video</span>
+</div>
+</div>
 {% for row in site.data.show_website_teaser %}
-<tr>
-<td>
-<video width="100%" controls autoplay loop muted>
+<div class="swiper-slide">
+<div class="store-media-frame fitvidsignore">
+<video controls autoplay loop muted playsinline>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4" type="video/mp4">
 </video>
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://beatsaver.com/maps/{{row.id}}" target="_blank">{{row.name}} ({{row.difficulty}})</a></td>
-</tr>
+</div>
+<div class="store-media-caption">
+<span class="store-media-label">Gameplay</span>
+<a href="https://beatsaver.com/maps/{{row.id}}" target="_blank">{{row.name}} ({{row.difficulty}})</a>
+</div>
+</div>
 {% endfor %}
-</table>
-<figcaption>
+</div>
+<div class="store-media-main-nav-layer">
+<button class="store-media-main-nav store-media-main-prev" type="button" aria-label="Previous video"><span aria-hidden="true">&lsaquo;</span></button>
+<button class="store-media-main-nav store-media-main-next" type="button" aria-label="Next video"><span aria-hidden="true">&rsaquo;</span></button>
+</div>
+</div>
+<div class="store-media-thumbs-wrap">
+<button class="store-media-thumb-nav store-media-thumb-prev" type="button" aria-label="Previous playlist item"><span aria-hidden="true">&lsaquo;</span></button>
+<div class="store-media-thumbs swiper">
+<div class="swiper-wrapper">
+<button class="store-media-thumb-button swiper-slide is-active" type="button" data-store-media-index="0" aria-label="Show video" aria-current="true">
+<span class="store-media-thumb">
+<span class="store-media-thumb-media"><img src="https://img.youtube.com/vi/urABYGfCeAc/mqdefault.jpg" alt=""></span>
+<span>
+<span class="store-media-thumb-type">Video</span>
+<span class="store-media-thumb-title">Eurographics 2026 Fast-Forward</span>
+</span>
+</span>
+</button>
+<button class="store-media-thumb-button swiper-slide" type="button" data-store-media-index="1" aria-label="Show video">
+<span class="store-media-thumb">
+<span class="store-media-thumb-media"><img src="https://img.youtube.com/vi/rjWQRB7w2LI/mqdefault.jpg" alt=""></span>
+<span>
+<span class="store-media-thumb-type">Video</span>
+<span class="store-media-thumb-title">Supplementary Video</span>
+</span>
+</span>
+</button>
+{% for row in site.data.show_website_teaser %}
+<button class="store-media-thumb-button swiper-slide" type="button" data-store-media-index="{{ forloop.index | plus: 1 }}" aria-label="Show video">
+<span class="store-media-thumb">
+<span class="store-media-thumb-media">
+<video muted playsinline preload="metadata">
+    <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4#t=0.1" type="video/mp4">
+</video>
+</span>
+<span>
+<span class="store-media-thumb-type">Gameplay</span>
+<span class="store-media-thumb-title">Example</span>
+</span>
+</span>
+</button>
+{% endfor %}
+</div>
+<div class="store-media-thumb-scrollbar swiper-scrollbar"></div>
+</div>
+<button class="store-media-thumb-nav store-media-thumb-next" type="button" aria-label="Next playlist item"><span aria-hidden="true">&rsaquo;</span></button>
+</div>
+<div class="store-media-summary">
 Robo-Saber is a player model for VR games, demonstrated in simulated Beat Saber playtesting.
-</figcaption>
+</div>
+</div>
+## Abstract
+
+<div class="abstract" markdown="1">
+We present the first motion generation system for playtesting virtual reality (VR) games. Our player model generates VR headset and handheld controller movements from in-game object arrangements, guided by style exemplars and aligned to maximize simulated gameplay score. We train on the large BOXRR-23 dataset and apply our framework on the popular VR game Beat Saber. The resulting model Robo-Saber produces skilled gameplay and captures diverse player behaviors, mirroring the skill levels and movement patterns specified by input style exemplars. Robo-Saber demonstrates promise in synthesizing rich gameplay data for predictive applications and enabling a physics-based whole-body VR playtesting agent.
 </div>
 
 ## Results: Generation + Tracking
 
-<div class="owl-carousel owl-theme">
+<div class="results-main-carousel carousel-container swiper">
+<div class="swiper-wrapper">
 {% for row in site.data.show_website %}
-<div class="item">
-<table class="results">
-<tr>
-<td>
-<video width="320" controls>
-    <source class="owl-lazy" src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4" type="video/mp4">
-</video>
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://beatsaver.com/maps/{{row.id}}" target="_blank">{{row.name}} ({{row.difficulty}})</a>
-</td>
-</tr>
-</table>
+<div class="swiper-slide">
+  <div class="results-card">
+    <video controls muted playsinline preload="metadata">
+        <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4" type="video/mp4">
+    </video>
+    <div class="results-card-content">
+      <a class="results-card-title" href="https://beatsaver.com/maps/{{row.id}}" target="_blank">{{row.name}} ({{row.difficulty}})</a>
+    </div>
+  </div>
 </div>
 {% endfor %}
 </div>
-<script>
-$('.owl-carousel').owlCarousel({
-    loop:false,
-    margin:10,
-    nav:true,
-    video:true,
-    center:true,
-    lazyLoad:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:2
-        },
-        1000:{
-            items:3
-        }
-    }
-})
-</script>
+<button class="carousel-nav carousel-prev results-main-prev" type="button" aria-label="Previous result"><span aria-hidden="true">&lsaquo;</span></button>
+<button class="carousel-nav carousel-next results-main-next" type="button" aria-label="Next result"><span aria-hidden="true">&rsaquo;</span></button>
+<div class="results-main-pagination swiper-pagination"></div>
+<div class="results-main-scrollbar carousel-scrollbar swiper-scrollbar"></div>
+</div>
 
-(Generation only & stylization: coming soon.)
+## 3p Generation and Stylization
+
+<div class="generation-carousel carousel-container swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+  <div class="results-card">
+    <iframe src="https://drive.google.com/file/d/1vu14Ir-rlGDVhvl2033tvufXVhQcdKC_/preview" allow="autoplay"></iframe>
+    <div class="results-card-content">
+      <span class="results-card-title">Generation Example 1</span>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="results-card">
+    <iframe src="https://drive.google.com/file/d/1yCyU8SIShV5il-97tnT5IJkFBFuk1yEd/preview" allow="autoplay"></iframe>
+    <div class="results-card-content">
+      <span class="results-card-title">Generation Example 2</span>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="results-card">
+    <iframe src="https://drive.google.com/file/d/1ecCP2X-YM2oFPSLt3B600Or2k41VF5Hs/preview" allow="autoplay"></iframe>
+    <div class="results-card-content">
+      <span class="results-card-title">Generation Example 3</span>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="results-card">
+    <iframe src="https://drive.google.com/file/d/1Kfeeh8fiAxTl8GVZuq7baHZPTWcPnUyV/preview" allow="autoplay"></iframe>
+    <div class="results-card-content">
+      <span class="results-card-title">Generation Example 4</span>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="results-card">
+    <iframe src="https://drive.google.com/file/d/1inIv7G-siFwyVtBmHsm3D50Jq9fIe0zF/preview" allow="autoplay"></iframe>
+    <div class="results-card-content">
+      <span class="results-card-title">Generation Example 5</span>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="results-card">
+    <iframe src="https://drive.google.com/file/d/1aiMmkk_ksz91JSpzhsRu9G7Ew8vrdRvS/preview" allow="autoplay"></iframe>
+    <div class="results-card-content">
+      <span class="results-card-title">Generation Example 6</span>
+    </div>
+  </div>
+</div>
+</div>
+<button class="carousel-nav carousel-prev generation-prev" type="button" aria-label="Previous result"><span aria-hidden="true">&lsaquo;</span></button>
+<button class="carousel-nav carousel-next generation-next" type="button" aria-label="Next result"><span aria-hidden="true">&rsaquo;</span></button>
+<div class="generation-pagination swiper-pagination"></div>
+<div class="generation-scrollbar carousel-scrollbar swiper-scrollbar"></div>
+</div>
 
 ## Summary
 
@@ -530,7 +1065,7 @@ Robo-Saber follows a **generate–simulate–select** pipeline.
 A reference-conditioned generative model samples multiple candidate _3p_ trajectories.
 Each candidate is then evaluated using TorchSaber, a custom GPU-accelerated _Beat Saber_ simulator we develop.
 The highest-scoring trajectory is selected and fed back autoregressively, producing minutes-long gameplay sequences on entirely new maps.
-The generated _3p_ trajectories can optionally drive a physics-based full-body tracking controller (PHC, Luo et al., 2023), fine-tuned on custom _Beat Saber_ motion capture data, for whole-body gameplay simulation.
+The generated _3p_ trajectories can optionally drive a physics-based full-body tracking controller (PHC, [Luo et al., 2023](https://arxiv.org/abs/2305.06456)), fine-tuned on custom _Beat Saber_ motion capture data, for whole-body gameplay simulation.
 
 <video width="100%" controls autoplay loop muted>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/humans_side_by_side_short.mp4" type="video/mp4">
@@ -617,8 +1152,114 @@ The resulting model achieves elite-level _Beat Saber_ gameplay and, by condition
     title={Robo-Saber: Generating and Simulating Virtual Reality Players},
     author={Kim, Nam Hee and Liu, Jingjing May and Lehtinen, Jaakko and H{\"a}m{\"a}l{\"a}inen, Perttu and O'Brien, James and Peng, Xue Bin}, booktitle={arXiv preprint},
     pages={1--10},
-    year={2025}
+    year={2026}
 }
 </pre>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var storeMediaThumbs = document.querySelectorAll('.store-media-thumb-button');
+
+    var storeThumbsSwiper = new Swiper('.store-media-thumbs', {
+        loop: false,
+        slidesPerView: 'auto',
+        spaceBetween: 8,
+        freeMode: true,
+        watchSlidesProgress: true,
+        slideToClickedSlide: true,
+        navigation: {
+            nextEl: '.store-media-thumb-next',
+            prevEl: '.store-media-thumb-prev'
+        },
+        scrollbar: {
+            el: '.store-media-thumb-scrollbar',
+            draggable: true,
+            hide: false
+        }
+    });
+
+    var storeMediaSwiper = new Swiper('.store-media-carousel', {
+        loop: false,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+            nextEl: '.store-media-main-next',
+            prevEl: '.store-media-main-prev'
+        },
+        thumbs: {
+            swiper: storeThumbsSwiper
+        },
+        on: {
+            slideChange: function () {
+                var currentIndex = this.realIndex;
+                storeMediaThumbs.forEach(function (thumb, index) {
+                    thumb.classList.toggle('is-active', index === currentIndex);
+                    thumb.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
+                });
+                document.querySelector('.store-media-current').textContent = currentIndex + 1;
+            }
+        }
+    });
+
+    var resultsSwiper = new Swiper('.results-main-carousel', {
+        loop: true,
+        centeredSlides: true,
+        slidesPerView: 1.2,
+        spaceBetween: 16,
+        navigation: {
+            nextEl: '.results-main-next',
+            prevEl: '.results-main-prev'
+        },
+        pagination: {
+            el: '.results-main-pagination',
+            clickable: true
+        },
+        scrollbar: {
+            el: '.results-main-scrollbar',
+            draggable: true,
+            hide: false
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 1.4,
+                spaceBetween: 24
+            },
+            1024: {
+                slidesPerView: 1.6,
+                spaceBetween: 32
+            }
+        }
+    });
+
+    var generationSwiper = new Swiper('.generation-carousel', {
+        loop: true,
+        centeredSlides: true,
+        slidesPerView: 1.2,
+        spaceBetween: 16,
+        navigation: {
+            nextEl: '.generation-next',
+            prevEl: '.generation-prev'
+        },
+        pagination: {
+            el: '.generation-pagination',
+            clickable: true
+        },
+        scrollbar: {
+            el: '.generation-scrollbar',
+            draggable: true,
+            hide: false
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 1.4,
+                spaceBetween: 24
+            },
+            1024: {
+                slidesPerView: 1.6,
+                spaceBetween: 32
+            }
+        }
+    });
+});
+</script>

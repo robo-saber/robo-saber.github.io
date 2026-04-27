@@ -1,6 +1,3 @@
-- name: Video (Coming Soon)
-  url: "https://youtube.com"
-  icon: "fab fa-youtube"
 - name: Paper
   url: "https://arxiv.org/abs/2602.18319"
   icon: "fa fa-file-pdf"
