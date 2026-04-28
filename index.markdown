@@ -901,7 +901,7 @@ a:hover {
 {% for row in site.data.show_website_teaser %}
 <div class="swiper-slide">
 <div class="store-media-frame fitvidsignore">
-<video controls autoplay loop muted playsinline>
+<video controls loop muted playsinline>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/{{row.hash}}_{{row.difficulty}}.mp4" type="video/mp4">
 </video>
 </div>
@@ -998,7 +998,7 @@ We present the first motion generation system for playtesting virtual reality (V
 <div class="swiper-wrapper">
 <div class="swiper-slide">
   <div class="results-card">
-    <iframe src="https://drive.google.com/file/d/1vu14Ir-rlGDVhvl2033tvufXVhQcdKC_/preview" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/1vu14Ir-rlGDVhvl2033tvufXVhQcdKC_/preview"></iframe>
     <div class="results-card-content">
       <span class="results-card-title">Generation Example 1</span>
     </div>
@@ -1006,7 +1006,7 @@ We present the first motion generation system for playtesting virtual reality (V
 </div>
 <div class="swiper-slide">
   <div class="results-card">
-    <iframe src="https://drive.google.com/file/d/1yCyU8SIShV5il-97tnT5IJkFBFuk1yEd/preview" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/1yCyU8SIShV5il-97tnT5IJkFBFuk1yEd/preview"></iframe>
     <div class="results-card-content">
       <span class="results-card-title">Generation Example 2</span>
     </div>
@@ -1014,7 +1014,7 @@ We present the first motion generation system for playtesting virtual reality (V
 </div>
 <div class="swiper-slide">
   <div class="results-card">
-    <iframe src="https://drive.google.com/file/d/1ecCP2X-YM2oFPSLt3B600Or2k41VF5Hs/preview" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/1ecCP2X-YM2oFPSLt3B600Or2k41VF5Hs/preview"></iframe>
     <div class="results-card-content">
       <span class="results-card-title">Generation Example 3</span>
     </div>
@@ -1022,7 +1022,7 @@ We present the first motion generation system for playtesting virtual reality (V
 </div>
 <div class="swiper-slide">
   <div class="results-card">
-    <iframe src="https://drive.google.com/file/d/1Kfeeh8fiAxTl8GVZuq7baHZPTWcPnUyV/preview" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/1Kfeeh8fiAxTl8GVZuq7baHZPTWcPnUyV/preview"></iframe>
     <div class="results-card-content">
       <span class="results-card-title">Generation Example 4</span>
     </div>
@@ -1030,7 +1030,7 @@ We present the first motion generation system for playtesting virtual reality (V
 </div>
 <div class="swiper-slide">
   <div class="results-card">
-    <iframe src="https://drive.google.com/file/d/1inIv7G-siFwyVtBmHsm3D50Jq9fIe0zF/preview" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/1inIv7G-siFwyVtBmHsm3D50Jq9fIe0zF/preview"></iframe>
     <div class="results-card-content">
       <span class="results-card-title">Generation Example 5</span>
     </div>
@@ -1038,7 +1038,7 @@ We present the first motion generation system for playtesting virtual reality (V
 </div>
 <div class="swiper-slide">
   <div class="results-card">
-    <iframe src="https://drive.google.com/file/d/1aiMmkk_ksz91JSpzhsRu9G7Ew8vrdRvS/preview" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/1aiMmkk_ksz91JSpzhsRu9G7Ew8vrdRvS/preview"></iframe>
     <div class="results-card-content">
       <span class="results-card-title">Generation Example 6</span>
     </div>
@@ -1067,7 +1067,7 @@ Each candidate is then evaluated using TorchSaber, a custom GPU-accelerated _Bea
 The highest-scoring trajectory is selected and fed back autoregressively, producing minutes-long gameplay sequences on entirely new maps.
 The generated _3p_ trajectories can optionally drive a physics-based full-body tracking controller (PHC, [Luo et al., 2023](https://arxiv.org/abs/2305.06456)), fine-tuned on custom _Beat Saber_ motion capture data, for whole-body gameplay simulation.
 
-<video width="100%" controls autoplay loop muted>
+<video width="100%" controls loop muted>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/humans_side_by_side_short.mp4" type="video/mp4">
 </video>
 
@@ -1082,7 +1082,7 @@ Naturally, different players move differently in terms of how and how well they 
 
 </td>
 <td style="width:50%; padding-left:8px;">
-<video width="100%" controls autoplay loop muted>
+<video width="100%" controls loop muted>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/supervised_learning_gt_cropped.mp4" type="video/mp4">
 </video>
 </td>
@@ -1096,12 +1096,12 @@ However, the key question remains: how should we represent the individual player
 <table class="teaser">
 <tr>
 <td style="width:50%;">
-<video width="100%" controls autoplay loop muted>
+<video width="100%" controls loop muted>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/left_0.mp4" type="video/mp4">
 </video>
 </td>
 <td style="width:50%;">
-<video width="100%" controls autoplay loop muted>
+<video width="100%" controls loop muted>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/left_1.mp4" type="video/mp4">
 </video>
 </td>
@@ -1121,7 +1121,7 @@ Second, we replace CCM's MSE-based matching loss with a Jensen-Shannon divergenc
 <table class="teaser">
 <tr>
 <td style="width:50%;">
-<video width="100%" controls autoplay loop muted>
+<video width="100%" controls loop muted>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/comparison_0.mp4" type="video/mp4">
 </video>
 </td>
@@ -1133,7 +1133,7 @@ By feeding the contextual exemplars along with in-game object arrangements and p
 <table class="teaser">
 <tr>
 <td style="width:50%;">
-<video width="100%" controls autoplay loop muted>
+<video width="100%" controls loop muted>
     <source src="https://users.aalto.fi/~kimn1/robo-saber/videos/comparison_1.mp4" type="video/mp4">
 </video>
 </td>
