@@ -1149,10 +1149,12 @@ The resulting model achieves elite-level _Beat Saber_ gameplay and, by condition
 <div class="citation-block">
 <pre>
 @inproceedings{kim2026robo,
-    title={Robo-Saber: Generating and Simulating Virtual Reality Players},
-    author={Kim, Nam Hee and Liu, Jingjing May and Lehtinen, Jaakko and H{\"a}m{\"a}l{\"a}inen, Perttu and O'Brien, James and Peng, Xue Bin}, booktitle={arXiv preprint},
-    pages={1--10},
-    year={2026}
+  title={Robo-Saber: Generating and Simulating Virtual Reality Players},
+  author={Kim, Nam Hee and Liu, Jingjing May and Lehtinen, Jaakko and H{\"a}m{\"a}l{\"a}inen, Perttu and O'Brien, James F. and Peng, Xue Bin},
+  booktitle={Computer Graphics Forum},
+  pages={e70353},
+  year={2026},
+  organization={Wiley Online Library}
 }
 </pre>
 </div>
