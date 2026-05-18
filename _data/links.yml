@@ -1,6 +1,6 @@
 - name: Paper
   url: "https://arxiv.org/abs/2602.18319"
   icon: "fa fa-file-pdf"
-- name: Code (Coming Soon)
+- name: Code
   url: "https://github.com/namheegordonkim/robo-saber"
   icon: "fab fa-github"
