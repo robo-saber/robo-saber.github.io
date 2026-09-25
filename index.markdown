@@ -401,15 +401,15 @@ div.figure img:hover {
 /* — Store Media Carousel — */
 div.store-media {
   width: 100%;
-  min-width: 280px;
+  min-width: 0;
   max-width: 900px;
   margin: 0.6rem auto 2rem auto;
   padding: 0.8rem;
   box-sizing: border-box;
   background: #fff;
   border: 1px solid #eaeaea;
-  border-radius: 8px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(30, 45, 80, 0.06);
 }
 
 .store-media-heading {
@@ -422,12 +422,11 @@ div.store-media {
 }
 
 .store-media-heading-count {
-  padding: 0.18rem 0.5rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 999px;
   color: #555;
   font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .store-media-heading-title,
@@ -461,7 +460,7 @@ div.store-media {
 .store-media-frame {
   position: relative;
   background: #000;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 0 1px #eaeaea;
 }
@@ -524,63 +523,45 @@ div.store-media {
   font-size: 0.72rem;
 }
 
-.store-media-main-nav-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 0;
-  padding-top: 56.25%;
-  z-index: 3;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.18s ease;
-}
-
-.store-media-carousel:hover .store-media-main-nav-layer,
-.store-media-carousel:focus-within .store-media-main-nav-layer {
-  opacity: 1;
+.store-media-navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: auto;
 }
 
 .store-media-main-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  flex-shrink: 0;
   width: 44px;
-  height: 72px;
+  height: 44px;
   padding: 0;
-  background: transparent !important;
-  border: 0;
-  border-radius: 0;
-  color: #fff;
+  background: #f6f8ff;
+  border: 1px solid #e2e7f5;
+  border-radius: 50%;
+  color: #4361ee;
   cursor: pointer;
   font-family: 'Noto Sans', sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
-  pointer-events: auto;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
-.store-media-main-nav:hover,
-.store-media-main-nav:focus {
-  color: #fff;
-  outline: none;
+.store-media-main-nav:hover:not(:disabled) {
+  background: #eaf0ff;
+  border-color: #4361ee;
+}
+
+.store-media-main-nav:focus-visible {
+  outline: 2px solid #4361ee;
+  outline-offset: 2px;
 }
 
 .store-media-main-nav.swiper-button-disabled {
   cursor: default;
-  opacity: 0.25;
-}
-
-.store-media-main-prev {
-  left: 0;
-}
-
-.store-media-main-next {
-  right: 0;
+  opacity: 0.35;
 }
 
 .store-media-thumbs-heading {
@@ -597,6 +578,7 @@ div.store-media {
 }
 
 .store-media-thumbs {
+  width: 100%;
   min-width: 0;
   padding-bottom: 0.7rem;
   overflow: hidden;
@@ -697,12 +679,6 @@ div.store-media {
   line-height: 1.55;
 }
 
-@media (hover: none), (pointer: coarse) {
-  .store-media-main-nav-layer {
-    opacity: 1;
-  }
-}
-
 /* — Abstract — */
 div.abstract {
   max-width: 800px;
@@ -781,13 +757,8 @@ a:hover {
     margin-top: 2.2rem;
   }
   div.store-media {
-    max-width: 95%;
+    max-width: 100%;
     padding: 0.55rem;
-  }
-  .store-media-main-nav {
-    width: 34px;
-    height: 56px;
-    font-size: 2.4rem;
   }
   .store-media-thumbs-wrap {
     grid-template-columns: 1.8rem minmax(0, 1fr) 1.8rem;
@@ -796,7 +767,7 @@ a:hover {
     width: 1.8rem;
   }
   .store-media-thumb-button {
-    width: 82% !important;
+    width: 100% !important;
   }
   .store-media-thumb {
     grid-template-columns: 4.8rem minmax(0, 1fr);
@@ -888,7 +859,11 @@ a:hover {
 <div class="store-media">
 <div class="store-media-heading">
 <span class="store-media-heading-title">Videos</span>
+<div class="store-media-navigation" role="group" aria-label="Video navigation">
+<button class="store-media-main-nav store-media-main-prev" type="button" aria-label="Previous video"><span aria-hidden="true">&lsaquo;</span></button>
 <span class="store-media-heading-count" aria-live="polite"><span class="store-media-current">1</span> / {{ site.data.show_website_teaser.size | plus: 2 }} videos</span>
+<button class="store-media-main-nav store-media-main-next" type="button" aria-label="Next video"><span aria-hidden="true">&rsaquo;</span></button>
+</div>
 </div>
 <div class="store-media-carousel swiper">
 <div class="swiper-wrapper">
@@ -923,10 +898,6 @@ a:hover {
 </div>
 </div>
 {% endfor %}
-</div>
-<div class="store-media-main-nav-layer">
-<button class="store-media-main-nav store-media-main-prev" type="button" aria-label="Previous video"><span aria-hidden="true">&lsaquo;</span></button>
-<button class="store-media-main-nav store-media-main-next" type="button" aria-label="Next video"><span aria-hidden="true">&rsaquo;</span></button>
 </div>
 </div>
 <div class="store-media-thumbs-wrap">
